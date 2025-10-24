@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" fill="#E63946" rx="32"/>
+  <g transform="translate(96, 96)">
+    <!-- Rocket body -->
+    <path d="M-15,-60 L-15,20 Q-15,30 0,30 Q15,30 15,20 L15,-60 Q15,-70 0,-70 Q-15,-70 -15,-60 Z" 
+          fill="#FFB703" stroke="white" stroke-width="3"/>
+    
+    <!-- Rocket window -->
+    <circle cx="0" cy="-30" r="12" fill="white" opacity="0.9"/>
+    
+    <!-- Rocket fins -->
+    <path d="M-15,-40 L-35,-20 L-15,-10 Z" fill="#FFB703" stroke="white" stroke-width="2"/>
+    <path d="M15,-40 L35,-20 L15,-10 Z" fill="#FFB703" stroke="white" stroke-width="2"/>
+    
+    <!-- Rocket flame -->
+    <path d="M-10,30 Q-15,40 -8,50 Q0,60 8,50 Q15,40 10,30 Z" 
+          fill="#FF6B35" opacity="0.8"/>
+    <path d="M-5,30 Q-8,38 0,48 Q8,38 5,30 Z" 
+          fill="#FFD60A" opacity="0.9"/>
+    
+    <!-- Speed lines -->
+    <line x1="-40" y1="-50" x2="-55" y2="-55" stroke="white" stroke-width="3" opacity="0.6"/>
+    <line x1="-40" y1="-30" x2="-55" y2="-30" stroke="white" stroke-width="3" opacity="0.6"/>
+    <line x1="40" y1="-50" x2="55" y2="-55" stroke="white" stroke-width="3" opacity="0.6"/>
+    <line x1="40" y1="-30" x2="55" y2="-30" stroke="white" stroke-width="3" opacity="0.6"/>
+  </g>
+</svg>

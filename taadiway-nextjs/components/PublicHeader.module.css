@@ -1,0 +1,26 @@
+/* Public Header Responsive Styles */
+.desktop-menu {
+  display: none;
+}
+
+.desktop-actions {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .desktop-menu {
+    display: block;
+  }
+
+  .desktop-actions {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}

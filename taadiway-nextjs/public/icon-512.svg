@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#E63946" rx="85"/>
+  <g transform="translate(256, 256)">
+    <!-- Rocket body -->
+    <path d="M-40,-160 L-40,53 Q-40,80 0,80 Q40,80 40,53 L40,-160 Q40,-186 0,-186 Q-40,-186 -40,-160 Z" 
+          fill="#FFB703" stroke="white" stroke-width="8"/>
+    
+    <!-- Rocket window -->
+    <circle cx="0" cy="-80" r="32" fill="white" opacity="0.9"/>
+    
+    <!-- Rocket fins -->
+    <path d="M-40,-106 L-93,-53 L-40,-26 Z" fill="#FFB703" stroke="white" stroke-width="5"/>
+    <path d="M40,-106 L93,-53 L40,-26 Z" fill="#FFB703" stroke="white" stroke-width="5"/>
+    
+    <!-- Rocket flame -->
+    <path d="M-26,80 Q-40,106 -21,133 Q0,160 21,133 Q40,106 26,80 Z" 
+          fill="#FF6B35" opacity="0.8"/>
+    <path d="M-13,80 Q-21,101 0,128 Q21,101 13,80 Z" 
+          fill="#FFD60A" opacity="0.9"/>
+    
+    <!-- Speed lines -->
+    <line x1="-106" y1="-133" x2="-146" y2="-146" stroke="white" stroke-width="8" opacity="0.6"/>
+    <line x1="-106" y1="-80" x2="-146" y2="-80" stroke="white" stroke-width="8" opacity="0.6"/>
+    <line x1="-106" y1="-26" x2="-146" y2="-13" stroke="white" stroke-width="8" opacity="0.6"/>
+    <line x1="106" y1="-133" x2="146" y2="-146" stroke="white" stroke-width="8" opacity="0.6"/>
+    <line x1="106" y1="-80" x2="146" y2="-80" stroke="white" stroke-width="8" opacity="0.6"/>
+    <line x1="106" y1="-26" x2="146" y2="-13" stroke="white" stroke-width="8" opacity="0.6"/>
+    
+    <!-- Stars -->
+    <circle cx="-160" cy="-160" r="5" fill="white" opacity="0.8"/>
+    <circle cx="160" cy="-160" r="5" fill="white" opacity="0.8"/>
+    <circle cx="-180" cy="0" r="4" fill="white" opacity="0.7"/>
+    <circle cx="180" cy="0" r="4" fill="white" opacity="0.7"/>
+  </g>
+</svg>

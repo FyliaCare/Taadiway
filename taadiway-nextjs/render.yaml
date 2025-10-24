@@ -1,0 +1,125 @@
+# Render Blueprint - Taadiway with Neon Databaseservices:# Render Blueprint - Taadiway
+
+# This file automates deployment on Render.com with Neon PostgreSQL
+
+  # PostgreSQL Database# This file can be used for Infrastructure as Code deployment on Render
+
+services:
+
+  # Web Service (Next.js App)  - type: pserv
+
+  - type: web
+
+    name: taadiway    name: taadiway-dbservices:
+
+    runtime: node
+
+    region: frankfurt  # Choose closest to your users    env: docker  # PostgreSQL Database
+
+    plan: free
+
+    branch: main    plan: free  - type: pserv
+
+    buildCommand: npm install && npx prisma generate && npm run build
+
+    startCommand: npm start    ipAllowList: []    name: taadiway-db
+
+    healthCheckPath: /api/health
+
+    autoDeploy: true    autoDeploy: false    plan: free
+
+    envVars:
+
+      - key: NODE_ENV    disk:    databaseName: taadiway
+
+        value: production
+
+      - key: DATABASE_URL      name: taadiway-data    databaseUser: taadiway_user
+
+        sync: false
+
+        # Set manually from Neon console: https://console.neon.tech      mountPath: /var/lib/postgresql/data    region: oregon
+
+      - key: DATABASE_PROVIDER
+
+        value: postgresql      sizeGB: 1    ipAllowList: []
+
+      - key: JWT_SECRET
+
+        generateValue: true    envVars:
+
+      - key: JWT_REFRESH_SECRET
+
+        generateValue: true      - key: POSTGRES_PASSWORD  # Web Service (Next.js App)
+
+      - key: NEXT_PUBLIC_API_URL
+
+        value: https://taadiway.onrender.com        generateValue: true  - type: web
+
+      - key: NEXT_PUBLIC_APP_NAME
+
+        value: Taadiway      - key: POSTGRES_USER    name: taadiway
+
+
+
+# Note: Database is hosted on Neon (https://neon.tech)        value: taadiway    runtime: node
+
+# Get your DATABASE_URL from: https://console.neon.tech
+
+# Neon Free Tier includes:      - key: POSTGRES_DB    region: oregon
+
+# - 3 GB storage
+
+# - Unlimited compute hours        value: taadiway_production    plan: free
+
+# - 1 project
+
+# - Autoscaling & serverless    branch: main
+
+
+  # Web Service    rootDir: taadiway-nextjs
+
+  - type: web    buildCommand: npm install && npx prisma generate && npm run build
+
+    name: taadiway-web    startCommand: npm start
+
+    env: node    healthCheckPath: /
+
+    region: frankfurt    envVars:
+
+    plan: free      - key: NODE_ENV
+
+    buildCommand: npm install && npx prisma generate && npm run build        value: production
+
+    startCommand: npm start      - key: DATABASE_URL
+
+    healthCheckPath: /api/health        fromDatabase:
+
+    autoDeploy: true          name: taadiway-db
+
+    envVars:          property: connectionString
+
+      - key: NODE_ENV      - key: JWT_SECRET
+
+        value: production        generateValue: true
+
+      - key: DATABASE_URL      - key: JWT_REFRESH_SECRET
+
+        fromDatabase:        generateValue: true
+
+          name: taadiway-db      - key: NEXT_PUBLIC_API_URL
+
+          property: connectionString        sync: false
+
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_API_URL
+        value: https://taadiway-web.onrender.com
+    
+databases:
+  - name: taadiway-db
+    databaseName: taadiway_production
+    user: taadiway
+    plan: free
