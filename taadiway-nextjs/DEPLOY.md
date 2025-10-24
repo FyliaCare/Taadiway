@@ -38,7 +38,6 @@ Click **Advanced** and add:
 ```env
 NODE_ENV=production
 DATABASE_URL=postgresql://neondb_owner:npg_5Qjb2CHkmyuG@ep-super-hill-agvam20u-pooler.c-2.eu-central-1.aws.neon.tech/neondb?sslmode=require
-DATABASE_PROVIDER=postgresql
 JWT_SECRET=[Generate 64-char string]
 JWT_REFRESH_SECRET=[Generate another 64-char string]
 NEXT_PUBLIC_API_URL=https://taadiway.onrender.com
